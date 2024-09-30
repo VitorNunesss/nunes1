@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eu Fiscalizo - Demanda Enviada</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Função para gerar um número de protocolo aleatório
+        function gerarProtocolo() {
+            const prefixo = 'PROT-';
+            const numero = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+            return prefixo + numero;
+        }
+        
+        // Executa a função ao carregar a página
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('protocolo').textContent = localStorage.getItem('protocolo');
+            document.getElementById('nome').textContent = localStorage.getItem('nome');
+            document.getElementById('email').textContent = localStorage.getItem('email');
+            document.getElementById('bairro').textContent = localStorage.getItem('bairro');
+            document.getElementById('titulo').textContent = localStorage.getItem('titulo');
+            document.getElementById('descricao').textContent = localStorage.getItem('descricao');
+            document.getElementById('localizacao').textContent = localStorage.getItem('localizacao');
+            localStorage.clear(); // Limpa o localStorage após o uso
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="iconfavfiscalizo.png" alt="Logo Eu Fiscalizo" class="logo">
+            <h1>Eu Fiscalizo</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="registro.html">Registrar Demanda</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="confirmation">
+        <h2>Demanda Enviada com Sucesso!</h2>
+        <p>Sua demanda foi recebida e está sendo processada.</p>
+        <p>O número do seu protocolo é: <strong id="protocolo">Aguarde...</strong></p>
+        <p>Nome: <strong id="nome">Aguarde...</strong></p>
+        <p>Email: <strong id="email">Aguarde...</strong></p>
+        <p>Bairro: <strong id="bairro">Aguarde...</strong></p>
+        <p>Título da Demanda: <strong id="titulo">Aguarde...</strong></p>
+        <p>Descrição: <strong id="descricao">Aguarde...</strong></p>
+        <p>Localização: <strong id="localizacao">Aguarde...</strong></p>
+        <p>Você pode acompanhar o status da sua demanda na nossa plataforma.</p>
+        <a href="home.html" class="button">Voltar para a Home</a>
+    </section>
+
+    <footer>
+        <p>© 2024 Eu Fiscalizo - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>

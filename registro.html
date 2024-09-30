@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eu Fiscalizo - Registrar Demanda</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="/iconfavfiscalizo.png" alt="Logo Eu Fiscalizo" class="logo">
+            <h1>Eu Fiscalizo</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="registro.html">Registrar Demanda</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="register">
+        <h2>Registrar Demanda</h2>
+        <form action="demanda-enviada.html" method="post" onsubmit="return enviarDemanda()">
+            <label for="nome">Seu Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">Seu Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="bairro">Bairro:</label>
+            <input type="text" id="bairro" name="bairro" required>
+
+            <label for="titulo">Título da Demanda:</label>
+            <input type="text" id="titulo" name="titulo" required>
+
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" rows="4" required></textarea>
+
+            <label for="localizacao">Localização:</label>
+            <input type="text" id="localizacao" name="localizacao" required>
+
+            <label for="foto">Anexar Foto (opcional):</label>
+            <input type="file" id="foto" name="foto">
+
+            <button type="submit" class="button">Enviar Demanda</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2024 Eu Fiscalizo - Todos os direitos reservados</p>
+    </footer>
+    <script>
+        function enviarDemanda() {
+            // Função para gerar um número de protocolo aleatório
+            function gerarProtocolo() {
+                const prefixo = 'PROT-';
+                const numero = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+                return prefixo + numero;
+            }
+
+            // Armazena o número de protocolo gerado no localStorage
+            localStorage.setItem('protocolo', gerarProtocolo());
+            localStorage.setItem('nome', document.getElementById('nome').value);
+            localStorage.setItem('email', document.getElementById('email').value);
+            localStorage.setItem('bairro', document.getElementById('bairro').value);
+            localStorage.setItem('titulo', document.getElementById('titulo').value);
+            localStorage.setItem('descricao', document.getElementById('descricao').value);
+            localStorage.setItem('localizacao', document.getElementById('localizacao').value);
+
+            return true; // Permite o envio do formulário
+        }
+    </script>
+</body>
+</html>
